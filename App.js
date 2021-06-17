@@ -36,20 +36,21 @@ export default function App() {
       setError(null);
       setIsLoggedIn(true);
     } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // when user cancels sign in process,
-        Alert.alert('Process Cancelled');
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // when in progress already
-        Alert.alert('Process in progress');
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // when play services not available
-        Alert.alert('Play services are not available');
-      } else {
-        // some other error
-        Alert.alert('Something else went wrong... ', error.toString());
-        setError(error);
-      }
+      // if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+      //   // when user cancels sign in process,
+      //   Alert.alert('Process Cancelled');
+      // } else if (error.code === statusCodes.IN_PROGRESS) {
+      //   // when in progress already
+      //   Alert.alert('Process in progress');
+      // } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+      //   // when play services not available
+      //   Alert.alert('Play services are not available');
+      // } else {
+      //   // some other error
+      //   Alert.alert('Something else went wrong... ', error.toString());
+      //   setError(error);
+      // }
+      console.warn(error)
     }
   }
 
@@ -63,9 +64,10 @@ export default function App() {
     }
   }
 
-  console.warn('userinfo',userInfo)
+  console.log('userinfo',userInfo)
   return (
     <View style={styles.container}>
+      <Text style={{fontSize: 18, color:'purple'}}>Hi Logesh! </Text>
       <GoogleSigninButton
         style={styles.signInButton}
         size={GoogleSigninButton.Size.Wide}
